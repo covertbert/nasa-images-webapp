@@ -28,7 +28,7 @@
 
     data () {
       return {
-        inputValue: ''
+        inputValue: null
       }
     },
 
