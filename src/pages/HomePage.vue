@@ -7,17 +7,12 @@
                    :hoverEffect="false"
                    :moveSpeed="1.1"></vue-particles>
 
-    <md-card class="search-container">
-      <md-field>
-        <label>Search NASA images...</label>
-        <md-input v-model="inputValue" class="search-container__input"></md-input>
-      </md-field>
-      <md-button class="md-raised md-primary search-container__button">Search</md-button>
-    </md-card>
+    <search-box-component></search-box-component>
   </main>
 </template>
 
 <script type="text/babel">
+  import SearchBoxComponent from '../components/SearchBoxComponent'
 
   export default {
     name: 'HomePage',
@@ -27,14 +22,14 @@
     props: {},
 
     data () {
-      return {
-        inputValue: null
-      }
+      return {}
     },
 
     computed: {},
 
-    components: {},
+    components: {
+      SearchBoxComponent
+    },
 
     watch: {},
 
@@ -63,27 +58,6 @@
       position: absolute;
       width: 100%;
       height: 100%;
-    }
-  }
-
-  .search-container {
-    padding: 1rem 2rem;
-    width: 28rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: none;
-    background-color: rgba($theme-gray, 0.9);
-
-    &__input::after {
-    }
-
-    &__button {
-      margin-left: 3rem;
-
-      &:hover {
-        cursor: pointer;
-      }
     }
   }
 </style>
