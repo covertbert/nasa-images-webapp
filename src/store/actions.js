@@ -19,6 +19,6 @@ export const fireSearch = ({commit}, payload) => {
 
       setTimeout(() => {
         commit('setSearchLoadedState', true)
-      }, 700)
+      }, 500)
     })
 }
