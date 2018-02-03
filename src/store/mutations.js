@@ -3,7 +3,6 @@ export const setSearchQuery = (state, payload) => {
 }
 
 export const setSearchLoadedState = (state, payload) => {
-  console.log(payload)
   payload === true ? state.searchResultsLoaded = true : state.searchResultsLoaded = false
 }
 

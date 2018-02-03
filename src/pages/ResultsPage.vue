@@ -23,6 +23,9 @@
         </md-card-actions>
       </md-card>
 
+      <h2 v-show="searchResults.length < 1"
+          class="search-results-section__no-results">No results for your query...</h2>
+
     </section>
 
     <section v-show="searchResultsLoaded === false" class="search-results-section__loading">
@@ -85,6 +88,10 @@
       @media (min-width: $break-small) {
         padding-top: 9rem;
       }
+    }
+
+    &__no-results {
+      opacity: .6;
     }
 
     &__loading {
