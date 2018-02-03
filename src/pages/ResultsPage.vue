@@ -1,31 +1,24 @@
 <template>
   <main class="search-results-section">
 
-    <section v-show="searchResultsLoaded === true" class="search-results-section__results">
+    <section v-show="searchResultsLoaded === true"
+             class="search-results-section__results">
 
       <search-box-component :topAnchored="true"></search-box-component>
 
-      <md-card v-for="(item, index) in searchResults"
+      <md-card md-with-hover
+               v-for="(item, index) in searchResults"
                :key="index"
+               :style="`background-image: url(${item.links[0].href})`"
                class="search-results-card">
 
-        <md-card-media>
-          <md-ripple>
-            <img :src="item.links[0].href" alt="People">
-          </md-ripple>
-        </md-card-media>
+        <md-card-media class="search-results-card__image"></md-card-media>
 
-        <md-card-actions>
+        <md-card-actions class="search-results-card__footer">
+          <md-subheader v-text="item.data[0].description"
+                        class="search-results-card__info"></md-subheader>
           <md-button class="md-icon-button">
-            <md-icon>favorite</md-icon>
-          </md-button>
-
-          <md-button class="md-icon-button">
-            <md-icon>bookmark</md-icon>
-          </md-button>
-
-          <md-button class="md-icon-button">
-            <md-icon>share</md-icon>
+            <md-icon>add</md-icon>
           </md-button>
         </md-card-actions>
       </md-card>
@@ -77,11 +70,22 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss/variables";
+
   .search-results-section {
     height: 100%;
 
     &__results {
-      padding: 9rem 2rem 2rem 2rem;
+      padding: 12rem 2rem 2rem 2rem;
+      display: grid;
+      grid-gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-auto-rows: 250px;
+      grid-auto-flow: row dense;
+
+      @media (min-width: $break-small) {
+        padding-top: 9rem;
+      }
     }
 
     &__loading {
@@ -95,6 +99,29 @@
   }
 
   .search-results-card {
-    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    grid-column-start: auto;
+    grid-row-start: auto;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+
+    &__footer {
+      background-color: $theme-gray;
+    }
+
+    &__info {
+      display: block;
+      padding-top: 14px;
+      height: 50px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 </style>

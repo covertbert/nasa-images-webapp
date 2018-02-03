@@ -77,7 +77,7 @@
       background-color: rgba($theme-gray, 1);
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: $break-small) {
       flex-direction: row;
     }
 
