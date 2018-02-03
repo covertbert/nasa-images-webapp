@@ -1,13 +1,16 @@
 <template>
   <md-card class="search-container">
 
-    <md-field>
-      <label>Search NASA</label>
-      <md-input v-model="inputValue" class="search-container__input"></md-input>
+    <md-field md-clearable>
+      <label v-text="'Search NASA'"></label>
+      <md-input @keyup.enter.native="fireSearch(inputValue)"
+                v-model="inputValue"
+                class="search-container__input"></md-input>
     </md-field>
 
     <md-button @click="fireSearch(inputValue)"
-               class="md-raised md-primary search-container__button">Search
+               class="md-raised md-primary search-container__button"
+               v-text="'Search'">
     </md-button>
   </md-card>
 </template>
@@ -62,6 +65,10 @@
 
     @media (min-width: 600px) {
       flex-direction: row;
+    }
+
+    &__button {
+      margin-left: 2rem;
     }
   }
 </style>
