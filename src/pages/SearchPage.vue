@@ -25,7 +25,7 @@
     },
 
     computed: {
-      ...mapState['searchResultsLoaded']
+      ...mapState(['searchResultsLoaded'])
     },
 
     components: {},

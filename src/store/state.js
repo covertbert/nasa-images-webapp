@@ -1,4 +1,4 @@
 export default {
-  searchQuery: null,
+  searchResults: null,
   searchResultsLoaded: false
 }
