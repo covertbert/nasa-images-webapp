@@ -64,8 +64,7 @@
     beforeCreate () {
     },
 
-    mounted () {
-    }
+    mounted () {}
   }
 </script>
 
