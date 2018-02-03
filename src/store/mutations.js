@@ -1,3 +1,3 @@
-export const testMutation = (state) => {
-  state.drawerNavIsActive = true
+export const setSearchQuery = (state, payload) => {
+  state.searchQuery = payload
 }

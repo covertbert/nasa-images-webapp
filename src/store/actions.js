@@ -1,3 +1,3 @@
-export const testAction = ({commit}) => {
-  commit('testMutation')
+export const fireSearch = ({commit}, payload) => {
+  commit('setSearchQuery', payload)
 }

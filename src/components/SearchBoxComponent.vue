@@ -1,14 +1,19 @@
 <template>
   <md-card class="search-container">
+
     <md-field>
       <label>Search NASA</label>
       <md-input v-model="inputValue" class="search-container__input"></md-input>
     </md-field>
-    <md-button class="md-raised md-primary search-container__button">Search</md-button>
+
+    <md-button @click="fireSearch(inputValue)"
+               class="md-raised md-primary search-container__button">Search
+    </md-button>
   </md-card>
 </template>
 
 <script type="text/babel">
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'SearchBoxComponent',
@@ -29,7 +34,9 @@
 
     watch: {},
 
-    methods: {},
+    methods: {
+      ...mapActions(['fireSearch'])
+    },
 
     beforeCreate () {
     },
