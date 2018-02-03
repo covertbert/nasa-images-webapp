@@ -1,5 +1,10 @@
-export const seSearchResultsLoaded = (state) => {
-  state.searchResultsLoaded = true
+export const setSearchQuery = (state, payload) => {
+  state.searchQuery = payload
+}
+
+export const setSearchLoadedState = (state, payload) => {
+  console.log(payload)
+  payload === true ? state.searchResultsLoaded = true : state.searchResultsLoaded = false
 }
 
 export const setSearchResults = (state, payload) => {

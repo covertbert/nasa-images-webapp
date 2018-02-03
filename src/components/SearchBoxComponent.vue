@@ -1,5 +1,5 @@
 <template>
-  <md-card class="search-container">
+  <md-card :class="['search-container', {'search-container--top-anchored' : topAnchored}]">
 
     <md-field md-clearable>
       <label v-text="'Search NASA'"></label>
@@ -23,7 +23,12 @@
 
     extends: {},
 
-    props: {},
+    props: {
+      topAnchored: {
+        default: false,
+        type: Boolean
+      }
+    },
 
     data () {
       return {
@@ -62,6 +67,15 @@
     align-items: center;
     box-shadow: none;
     background-color: rgba($theme-gray, 0.9);
+
+    &--top-anchored {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 3;
+      background-color: rgba($theme-gray, 1);
+    }
 
     @media (min-width: 600px) {
       flex-direction: row;

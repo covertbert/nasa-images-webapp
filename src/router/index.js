@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/pages/HomePage'
-import SearchPage from '@/pages/SearchPage'
+import ResultsPage from '@/pages/ResultsPage'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: HomePage
     },
     {
-      path: 'search',
-      name: 'SearchPage',
-      component: SearchPage
+      path: '/search',
+      name: 'ResultsPage',
+      component: ResultsPage
     }
   ]
 })
