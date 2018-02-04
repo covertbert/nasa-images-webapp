@@ -6,16 +6,13 @@
 
       <search-box-component :topAnchored="true"></search-box-component>
 
-      <search-result-card v-for="(item, index) in searchResults"
+      <result-card-component v-for="(item, index) in searchResults"
                           :key="index"
                           :imgSrc="item.links[0].href"
                           :imgAlt="item.data[0].title"
-                          :imgDescription="item.data[0].description"></search-result-card>
+                          :imgDescription="item.data[0].description"></result-card-component>
 
-      <h2 v-show="searchResults.length < 1"
-          class="search-results-section__no-results">
-        No results for your query...
-      </h2>
+      <no-results-component v-show="searchResults.length < 1"></no-results-component>
 
     </section>
 
@@ -31,7 +28,8 @@
 <script type="text/babel">
   import { mapState } from 'vuex'
   import SearchBoxComponent from '../components/SearchBoxComponent'
-  import SearchResultCard from '../components/SearchResultCard'
+  import NoResultsComponent from '../components/NoResultsComponent'
+  import ResultCardComponent from '../components/ResultCardComponent'
 
   export default {
     name: 'ResultsPage',
@@ -50,7 +48,8 @@
 
     components: {
       SearchBoxComponent,
-      SearchResultCard
+      ResultCardComponent,
+      NoResultsComponent
     },
 
     watch: {},

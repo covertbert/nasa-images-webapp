@@ -20,7 +20,7 @@
 <script type="text/babel">
 
   export default {
-    name: 'SearchResultCard',
+    name: 'ResultCardComponent',
 
     extends: {},
 
