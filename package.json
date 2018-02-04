@@ -6,15 +6,15 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "node server.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js",
-    "postinstall": "npm install && npm install http-server && npm run build"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "express": "^4.16.2",
     "moment": "^2.20.1",
     "vue": "^2.5.2",
     "vue-material": "^1.0.0-beta-7",
