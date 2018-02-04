@@ -1,10 +1,11 @@
 <template>
-  <h2 class="search-results-section__no-results">
-    No results for your query...
+  <h2 class="search-results-section__no-results"
+      v-text="`No results for '${searchQuery}'`">
   </h2>
 </template>
 
 <script type="text/babel">
+  import { mapState } from 'vuex'
 
   export default {
     name: 'NoResultsComponent',
@@ -17,7 +18,9 @@
       return {}
     },
 
-    computed: {},
+    computed: {
+      ...mapState(['searchQuery'])
+    },
 
     components: {},
 

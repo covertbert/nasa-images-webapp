@@ -8,6 +8,7 @@ export const fireSearch = ({commit}, payload) => {
   router.push({name: 'ResultsPage'})
 
   sessionStorage.setItem('searchIsLoaded', JSON.stringify(true))
+  sessionStorage.setItem('searchQuery', JSON.stringify(payload))
 
   axios.get(`${process.env.API_URL}/search?q=${payload}&media_type=image`)
     .then((searchResults) => {

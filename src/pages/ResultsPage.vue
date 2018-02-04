@@ -7,10 +7,11 @@
       <search-box-component :topAnchored="true"></search-box-component>
 
       <result-card-component v-for="(item, index) in searchResults"
-                          :key="index"
-                          :imgSrc="item.links[0].href"
-                          :imgAlt="item.data[0].title"
-                          :imgDescription="item.data[0].description"></result-card-component>
+                             :key="index"
+                             :imgSrc="item.links[0].href"
+                             :imgAlt="item.data[0].title"
+                             :imgDescription="item.data[0].description">
+      </result-card-component>
 
       <no-results-component v-show="searchResults.length < 1"></no-results-component>
 
