@@ -29,12 +29,13 @@ export const loadCurrentResult = ({commit}, payload) => {
 
   axios.get(`${process.env.API_URL}/search?nasa_id=${payload}`)
     .then((currentResultData) => {
-      commit('setCurrentResult', currentResultData)
+      commit('setCurrentResult', currentResultData.data)
 
-      sessionStorage.setItem('currentResultData', JSON.stringify(currentResultData))
+      sessionStorage.setItem('currentResultData', JSON.stringify(currentResultData.data))
 
       setTimeout(() => {
         commit('setCurrentResultLoaded', true)
+        sessionStorage.setItem('currentResultLoaded', JSON.stringify(true))
       }, 500)
     })
 }

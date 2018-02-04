@@ -10,8 +10,9 @@
     <md-card-actions class="search-results-card__footer">
       <md-subheader v-text="imgDescription"
                     class="search-results-card__info"></md-subheader>
-      <md-button @click="loadCurrentResult(resultTargetID)" class="md-icon-button">
-        <md-icon>add</md-icon>
+      <md-button @click="loadCurrentResult(resultTargetID)"
+                 class="md-icon-button">
+        <md-icon>send</md-icon>
       </md-button>
     </md-card-actions>
   </md-card>
