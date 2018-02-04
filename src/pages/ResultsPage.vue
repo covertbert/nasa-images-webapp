@@ -9,10 +9,13 @@
       <md-card md-with-hover
                v-for="(item, index) in searchResults"
                :key="index"
-               :style="`background-image: url(${item.links[0].href})`"
                class="search-results-card">
 
-        <md-card-media class="search-results-card__image"></md-card-media>
+        <md-card-media class="search-results-card__image-container">
+          <img :src="item.links[0].href"
+               class="search-results-card__image"
+               :alt="item.data[0].title">
+        </md-card-media>
 
         <md-card-actions class="search-results-card__footer">
           <md-subheader v-text="item.data[0].description"
@@ -109,14 +112,25 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    box-sizing: border-box;
     grid-column-start: auto;
     grid-row-start: auto;
-    background-size: cover;
-    background-position: center;
     cursor: pointer;
 
+    &__image-container {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    &__image {
+      position: absolute;
+      object-fit: cover;
+      height: 100%;
+    }
+
     &__footer {
+      width: 100%;
+      height: 65px;
       background-color: $theme-gray;
     }
 

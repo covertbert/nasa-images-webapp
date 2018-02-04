@@ -2,7 +2,7 @@
   <md-card :class="['search-container', {'search-container--top-anchored' : topAnchored}]">
 
     <md-field md-clearable>
-      <label v-text="'Search NASA'"></label>
+      <label v-text="'Search NASA images'"></label>
       <md-input @keyup.enter.native="fireSearch(inputValue)"
                 v-model="inputValue"
                 class="search-container__input"></md-input>
