@@ -6,25 +6,11 @@
 
       <search-box-component :topAnchored="true"></search-box-component>
 
-      <md-card md-with-hover
-               v-for="(item, index) in searchResults"
-               :key="index"
-               class="search-results-card">
-
-        <md-card-media class="search-results-card__image-container">
-          <img :src="item.links[0].href"
-               class="search-results-card__image"
-               :alt="item.data[0].title">
-        </md-card-media>
-
-        <md-card-actions class="search-results-card__footer">
-          <md-subheader v-text="item.data[0].description"
-                        class="search-results-card__info"></md-subheader>
-          <md-button class="md-icon-button">
-            <md-icon>add</md-icon>
-          </md-button>
-        </md-card-actions>
-      </md-card>
+      <search-result-card v-for="(item, index) in searchResults"
+                          :key="index"
+                          :imgSrc="item.links[0].href"
+                          :imgAlt="item.data[0].title"
+                          :imgDescription="item.data[0].description"></search-result-card>
 
       <h2 v-show="searchResults.length < 1"
           class="search-results-section__no-results">
@@ -45,6 +31,7 @@
 <script type="text/babel">
   import { mapState } from 'vuex'
   import SearchBoxComponent from '../components/SearchBoxComponent'
+  import SearchResultCard from '../components/SearchResultCard'
 
   export default {
     name: 'ResultsPage',
@@ -62,7 +49,8 @@
     },
 
     components: {
-      SearchBoxComponent
+      SearchBoxComponent,
+      SearchResultCard
     },
 
     watch: {},
@@ -106,44 +94,6 @@
       width: 100%;
       height: 100%;
       z-index: 4;
-    }
-  }
-
-  .search-results-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    grid-column-start: auto;
-    grid-row-start: auto;
-    cursor: pointer;
-
-    &__image-container {
-      position: relative;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    &__image {
-      position: absolute;
-      object-fit: cover;
-      height: 100%;
-    }
-
-    &__footer {
-      width: 100%;
-      height: 65px;
-      background-color: $theme-gray;
-    }
-
-    &__info {
-      display: block;
-      padding-top: 14px;
-      height: 50px;
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
   }
 </style>
