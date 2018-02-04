@@ -39,6 +39,9 @@
 <style scoped lang="scss" rel="stylesheet/scss">
   .result-loading-component {
     display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
     justify-content: center;
     align-items: center;
     width: 100%;

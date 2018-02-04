@@ -25,6 +25,7 @@ export const fireSearch = ({commit}, payload) => {
 }
 
 export const loadCurrentResult = ({commit}, payload) => {
+  commit('setCurrentResultLoaded', false)
   router.push({ name: 'IndividualResultPage', params: { id: payload } })
 
   axios.get(`${process.env.API_URL}/search?nasa_id=${payload}`)

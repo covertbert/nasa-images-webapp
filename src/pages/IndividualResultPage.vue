@@ -8,10 +8,23 @@
       <h1 v-text="currentResultData.collection.items[0].data[0].title"
           class="result-details-section__header md-display-1"></h1>
 
-      <div class="result-details-section__body">
-        <img :src="currentResultData.collection.items[0].links[0].href"
-             class="result-details-section__image"
-             :alt="currentResultData.collection.items[0].data[0].title">
+      <div class="result-details-section__main">
+
+        <div class="result-details-section__image-container">
+          <img :src="currentResultData.collection.items[0].links[0].href"
+               class="result-details-section__image"
+               :alt="currentResultData.collection.items[0].data[0].title">
+
+          <md-card-actions class="bottom-bar">
+            <span v-text="formatDate(currentResultData.collection.items[0].data[0].date_created)"
+                  class="result-details-section__date"></span>
+
+            <a target="_blank"
+               :href="currentResultData.collection.items[0].links[0].href">
+              <md-button class="md-primary">View original</md-button>
+            </a>
+          </md-card-actions>
+        </div>
 
         <p v-text="currentResultData.collection.items[0].data[0].description"
            class="result-details-section__description"></p>
@@ -27,6 +40,7 @@
   import { mapState } from 'vuex'
   import ResultLoadingComponent from '../components/ResultLoadingComponent'
   import SearchBoxComponent from '../components/SearchBoxComponent'
+  import moment from 'moment'
 
   export default {
     name: 'IndividualResultPage',
@@ -50,7 +64,11 @@
 
     watch: {},
 
-    methods: {},
+    methods: {
+      formatDate (date) {
+        return moment(date).format('Do MMMM YYYY')
+      }
+    },
 
     beforeCreate () {
     },
@@ -70,7 +88,11 @@
       padding-top: 9rem;
     }
 
-    &__body {
+    &__header {
+      margin-top: 0;
+    }
+
+    &__main {
       display: flex;
       flex-direction: column;
 
@@ -82,16 +104,36 @@
     &__image {
       flex: 1;
       align-self: center;
-      max-width: 400px;
+      width: 100%;
+    }
+
+    &__image-container {
+      max-width: 500px;
     }
 
     &__description {
-      margin-top: 0;
-      padding: 0 1rem;
+      margin-top: 1rem;
       flex: 1.5;
       opacity: 0.7;
       font-size: 1.1rem;
       font-weight: 300;
+      min-width: 250px;
+
+      @media (min-width: $break-small) {
+        margin-top: 0;
+        padding: 0 1rem;
+      }
+    }
+  }
+
+  .bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $theme-gray;
+
+    &__plus a:hover {
+      text-decoration: none !important;
     }
   }
 </style>
