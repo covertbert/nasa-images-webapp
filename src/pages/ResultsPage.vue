@@ -27,7 +27,9 @@
       </md-card>
 
       <h2 v-show="searchResults.length < 1"
-          class="search-results-section__no-results">No results for your query...</h2>
+          class="search-results-section__no-results">
+        No results for your query...
+      </h2>
 
     </section>
 
