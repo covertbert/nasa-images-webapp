@@ -10,17 +10,15 @@
     <md-card-actions class="search-results-card__footer">
       <md-subheader v-text="imgDescription"
                     class="search-results-card__info"></md-subheader>
-      <md-button class="md-icon-button">
-        <router-link :to="{ name: 'IndividualResultPage', params: { id: resultTargetID } }"
-                     class="search-results-card__link">
-          <md-icon>add</md-icon>
-        </router-link>
+      <md-button @click="loadCurrentResult(resultTargetID)" class="md-icon-button">
+        <md-icon>add</md-icon>
       </md-button>
     </md-card-actions>
   </md-card>
 </template>
 
 <script type="text/babel">
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'ResultCardComponent',
@@ -56,7 +54,9 @@
 
     watch: {},
 
-    methods: {},
+    methods: {
+      ...mapActions(['loadCurrentResult'])
+    },
 
     beforeCreate () {
     },

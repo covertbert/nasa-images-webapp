@@ -23,3 +23,18 @@ export const fireSearch = ({commit}, payload) => {
       }, 500)
     })
 }
+
+export const loadCurrentResult = ({commit}, payload) => {
+  router.push({ name: 'IndividualResultPage', params: { id: payload } })
+
+  axios.get(`${process.env.API_URL}/search?nasa_id=${payload}`)
+    .then((currentResultData) => {
+      commit('setCurrentResult', currentResultData)
+
+      sessionStorage.setItem('currentResultData', JSON.stringify(currentResultData))
+
+      setTimeout(() => {
+        commit('setCurrentResultLoaded', true)
+      }, 500)
+    })
+}

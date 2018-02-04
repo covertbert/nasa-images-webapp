@@ -1,8 +1,9 @@
 <template>
-  <div>User {{ $route.params.id }}</div>
+  <div>{{currentResultData}}</div>
 </template>
 
 <script type="text/babel">
+  import { mapState } from 'vuex'
 
   export default {
     name: 'IndividualResultPage',
@@ -15,7 +16,9 @@
       return {}
     },
 
-    computed: {},
+    computed: {
+      ...mapState(['currentResultData'])
+    },
 
     components: {},
 
