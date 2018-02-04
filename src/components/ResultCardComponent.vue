@@ -11,7 +11,10 @@
       <md-subheader v-text="imgDescription"
                     class="search-results-card__info"></md-subheader>
       <md-button class="md-icon-button">
-        <md-icon>add</md-icon>
+        <router-link :to="{ name: 'IndividualResultPage', params: { id: resultTargetID } }"
+                     class="search-results-card__link">
+          <md-icon>add</md-icon>
+        </router-link>
       </md-button>
     </md-card-actions>
   </md-card>
@@ -34,6 +37,10 @@
         type: String
       },
       imgAlt: {
+        required: true,
+        type: String
+      },
+      resultTargetID: {
         required: true,
         type: String
       }
@@ -81,6 +88,10 @@
       position: absolute;
       object-fit: cover;
       height: 100%;
+    }
+
+    &__link:hover {
+      text-decoration: none;
     }
 
     &__footer {

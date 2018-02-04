@@ -8,6 +8,7 @@
 
       <result-card-component v-for="(item, index) in searchResults"
                              :key="index"
+                             :resultTargetID="item.data[0].nasa_id"
                              :imgSrc="item.links[0].href"
                              :imgAlt="item.data[0].title"
                              :imgDescription="item.data[0].description">

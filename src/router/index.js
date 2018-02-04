@@ -20,6 +20,7 @@ export default new Router({
     },
     {
       path: '/search/:id',
+      name: 'IndividualResultPage',
       component: IndividualResultPage
     }
   ]
