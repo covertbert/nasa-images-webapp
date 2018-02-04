@@ -18,12 +18,7 @@
 
     </section>
 
-    <section v-show="searchResultsLoaded === false" class="search-results-section__loading">
-      <md-progress-spinner
-        :md-diameter="100"
-        :md-stroke="10"
-        md-mode="indeterminate"></md-progress-spinner>
-    </section>
+    <result-loading-component v-show="searchResultsLoaded === false"></result-loading-component>
   </main>
 </template>
 
@@ -32,6 +27,7 @@
   import SearchBoxComponent from '../components/SearchBoxComponent'
   import NoResultsComponent from '../components/NoResultsComponent'
   import ResultCardComponent from '../components/ResultCardComponent'
+  import ResultLoadingComponent from '../components/ResultLoadingComponent'
 
   export default {
     name: 'ResultsPage',
@@ -51,7 +47,8 @@
     components: {
       SearchBoxComponent,
       ResultCardComponent,
-      NoResultsComponent
+      NoResultsComponent,
+      ResultLoadingComponent
     },
 
     watch: {},
@@ -86,15 +83,6 @@
 
     &__no-results {
       opacity: .6;
-    }
-
-    &__loading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      z-index: 4;
     }
   }
 </style>

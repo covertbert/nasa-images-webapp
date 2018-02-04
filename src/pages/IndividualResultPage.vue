@@ -1,5 +1,8 @@
 <template>
-  <div>{{currentResultData}}</div>
+  <main class="result-details-section">
+
+    <div>{{currentResultData}}</div>
+  </main>
 </template>
 
 <script type="text/babel">
