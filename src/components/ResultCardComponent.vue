@@ -11,7 +11,7 @@
       <md-subheader v-text="imgDescription"
                     class="search-results-card__info"></md-subheader>
       <md-button @click="loadCurrentResult(resultTargetID)"
-                 class="md-icon-button">
+                 class="md-icon-button search-results-card__button">
         <md-icon>send</md-icon>
       </md-button>
     </md-card-actions>
