@@ -26,7 +26,7 @@
           </md-card-actions>
         </div>
 
-        <p v-text="currentResultData.collection.items[0].data[0].description"
+        <p v-html="currentResultData.collection.items[0].data[0].description"
            class="result-details-section__description"></p>
       </div>
 
@@ -128,7 +128,7 @@
 
   .bottom-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between !important;
     align-items: center;
     background-color: $theme-gray;
 
