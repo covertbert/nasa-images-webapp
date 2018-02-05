@@ -28,5 +28,41 @@ describe('mocking NASA API requests', function () {
 
       done()
     })
+
+    it('vuex searchResults state is updated to contain search results', function (done) {
+      const Constructor = Vue.extend({...SearchBoxComponent, store})
+      const searchBoxComponent = new Constructor().$mount()
+      const searchButton = searchBoxComponent.$el.querySelector('.search-container__button')
+
+      searchBoxComponent.inputValue = 'moon'
+
+      const clickEvent = new window.Event('click')
+      searchButton.dispatchEvent(clickEvent)
+
+      setTimeout(() => {
+        expect(store.state.searchResults)
+          .to.be.an('array')
+      }, 1000)
+
+      done()
+    })
+
+    it('vuex searchResultsLoaded state is set to "true"', function (done) {
+      const Constructor = Vue.extend({...SearchBoxComponent, store})
+      const searchBoxComponent = new Constructor().$mount()
+      const searchButton = searchBoxComponent.$el.querySelector('.search-container__button')
+
+      searchBoxComponent.inputValue = 'moon'
+
+      const clickEvent = new window.Event('click')
+      searchButton.dispatchEvent(clickEvent)
+
+      setTimeout(() => {
+        expect(store.state.searchResultsLoaded)
+          .to.equal(true)
+      }, 1000)
+
+      done()
+    })
   })
 })
